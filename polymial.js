@@ -34,6 +34,9 @@ function poly_mul(l, r) {
         if (!(r instanceof Array)) {
             r = [r];
         }
+        if ((l[0] == 0 && l.length == 1) || (r[0] == 0 && r.length == 1)){
+            return [0];
+        }
         console.log(l, r);
         var i;
         var q = l;
