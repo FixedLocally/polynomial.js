@@ -34,7 +34,7 @@ function poly_mul(l, r) {
         if (!(r instanceof Array)) {
             r = [r];
         }
-        if ((l[0] == 0 && l.length == 1) || (r[0] == 0 && r.length == 1)){
+        if ((l[0] == 0 && l.length == 1) || (r[0] == 0 && r.length == 1)) {
             return [0];
         }
         console.log(l, r);
@@ -61,37 +61,28 @@ function poly_toString(poly) {
     }
     return str.replace(/\^1/, '');
 }
-function poly_deg(p){
-    if(!(p instanceof Array)){
+function poly_deg(p) {
+    if (!(p instanceof Array)) {
         return p ? 0 : Number.NEGATIVE_INFINITY;
     }
     var i = p.length - 1;
-    while(i >= 0 && !p[i]) i--;
-    return i<0 ? Number.NEGATIVE_INFINITY : i;
+    while (i >= 0 && !p[i])
+        i--;
+    return i < 0 ? Number.NEGATIVE_INFINITY : i;
 }
-function poly_div(nu, de){
-        if(poly_deg(nu)<poly_deg(de)){
-                    return [0,nu];
-                        }else{
-                                    var degree=poly_deg(nu)-poly_deg(de);
-                                            var res=[];
-                                                    var n=nu;
-                                                            for(var i=0;i<=degree;++i){
-                                                                            res.push(0);
-                                                                                    }
-                                                                    for(var i=degree;i>=0;--i){
-                                                                                    res[i]=n[poly_deg(n)-1-degree+i]/de[poly_deg(de)-1-degree+i];
-                                                                                                n=poly_add(n,poly_mul([-res[i]],de))
-                                                                                                            }
-                                                                        }
+function poly_div(nu, de) {
+    if (poly_deg(nu) < poly_deg(de)) {
+        return [0, nu];
+    } else {
+        var degree = poly_deg(nu) - poly_deg(de);
+        var res = [];
+        var n = JSON.parse(JSON.stringify(nu));
+        for (var i = 0; i <= degree; ++i) {
+            res.push(0);
+        }
+        for (var i = degree; i >= 0; --i) {
+            res[i] = n[poly_deg(n) - 1 - degree + i] / de[poly_deg(de)];
+            n = poly_add(n, poly_mul([-res[i]], de))
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
