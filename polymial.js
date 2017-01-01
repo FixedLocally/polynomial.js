@@ -70,7 +70,7 @@ function poly_deg(p) {
         i--;
     return i < 0 ? Number.NEGATIVE_INFINITY : i;
 }
-function poly_div(nu, de) {
+/*function poly_div(nu, de) {
     if (poly_deg(nu) < poly_deg(de)) {
         return [0, nu];
     } else {
@@ -84,5 +84,6 @@ function poly_div(nu, de) {
             res[i] = n[poly_deg(n) - 1 - degree + i] / de[poly_deg(de)];
             n = poly_add(n, poly_mul([-res[i]], de))
         }
+        return res;
     }
-}
+}*/
