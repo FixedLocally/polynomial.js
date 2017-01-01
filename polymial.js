@@ -69,3 +69,29 @@ function poly_deg(p){
     while(i >= 0 && !p[i]) i--;
     return i<0 ? Number.NEGATIVE_INFINITY : i;
 }
+function poly_div(nu, de){
+        if(poly_deg(nu)<poly_deg(de)){
+                    return [0,nu];
+                        }else{
+                                    var degree=poly_deg(nu)-poly_deg(de);
+                                            var res=[];
+                                                    var n=nu;
+                                                            for(var i=0;i<=degree;++i){
+                                                                            res.push(0);
+                                                                                    }
+                                                                    for(var i=degree;i>=0;--i){
+                                                                                    res[i]=n[poly_deg(n)-1-degree+i]/de[poly_deg(de)-1-degree+i];
+                                                                                                n=poly_add(n,poly_mul([-res[i]],de))
+                                                                                                            }
+                                                                        }
+}
+
+
+
+
+
+
+
+
+
+
