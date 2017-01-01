@@ -61,3 +61,11 @@ function poly_toString(poly) {
     }
     return str.replace(/\^1/, '');
 }
+function poly_deg(p){
+    if(!(p instanceof Array)){
+        return p ? 0 : Number.NEGATIVE_INFINITY;
+    }
+    var i = p.length - 1;
+    while(i >= 0 && !p[i]) i--;
+    return i<0 ? Number.NEGATIVE_INFINITY : i;
+}
