@@ -59,5 +59,5 @@ function poly_toString(poly) {
         str += poly[i].toString();
         str += "x^" + i;
     }
-    return str.replace(/\^1/, );
+    return str.replace(/\^1/, '');
 }
