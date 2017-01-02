@@ -39,7 +39,7 @@ function poly_mul(l, r) {
         }
         console.log(l, r);
         var i;
-        var q = l;
+        var q = JSON.parse(JSON.stringify(l));
         var t = [];
         for (i = 0; i < r.length; ++i) {
             t = poly_add(t, q.map(function(a) {
@@ -70,7 +70,7 @@ function poly_deg(p) {
         i--;
     return i < 0 ? Number.NEGATIVE_INFINITY : i;
 }
-/*function poly_div(nu, de) {
+function poly_div(nu, de) {
     if (poly_deg(nu) < poly_deg(de)) {
         return [0, nu];
     } else {
@@ -81,9 +81,12 @@ function poly_deg(p) {
             res.push(0);
         }
         for (var i = degree; i >= 0; --i) {
-            res[i] = n[poly_deg(n) - 1 - degree + i] / de[poly_deg(de)];
-            n = poly_add(n, poly_mul([-res[i]], de))
+            var x = poly_deg(nu) - degree + i;
+            res[i] = n[x] / de[poly_deg(de)];
+            //console.log('div',0,i,x, res,de, n);
+            n = poly_add(nu, poly_mul(-1, res, de));
+            //console.log('div',1,i,x, res,de, n);
         }
-        return res;
+        return [res, n];
     }
-}*/
+}
