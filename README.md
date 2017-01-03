@@ -4,6 +4,7 @@ A JS library to process polynomials.
 Polynomials are represented by arrays, in ascending powers.
 
 Functions:
+
 `poly_add()`
 Takes any number of arguments, returns their sum.
 ```
