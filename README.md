@@ -5,7 +5,8 @@ Polynomials are represented by arrays, in ascending powers.
 Functions:
 `poly_add()`
 Takes any number of arguments, returns their sum.
-```poly_add([1,3],[1,2,1])
+```
+poly_add([1,3],[1,2,1])
 //[2,5,1]
 ```
 
