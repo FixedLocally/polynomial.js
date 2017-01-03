@@ -62,7 +62,7 @@ function poly_toString(poly, order) {
         }
     } else {
         for (var i = 1; i < poly.length; ++i) {
-            if (poly[i] > 0) {
+            if (poly[i - 1] > 0) {
                 str = "+" + str;
             }
             str = "x^" + i + str;
@@ -99,4 +99,11 @@ function poly_div(nu, de) {
         }
         return [res, n];
     }
+}
+function poly_differentiate(poly) {
+    var a = poly.map(function(a,b){
+        return a*b;
+    });
+    a.shift();
+    return a;
 }
