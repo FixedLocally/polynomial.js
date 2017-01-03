@@ -50,16 +50,27 @@ function poly_mul(l, r) {
         return t;
     }
 }
-function poly_toString(poly) {
+function poly_toString(poly, order) {
     str = poly[0].toString();
-    for (var i = 1; i < poly.length; ++i) {
-        if (poly[i] > 0) {
-            str += "+";
+    if (order){
+        for (var i = 1; i < poly.length; ++i) {
+            if (poly[i] > 0) {
+                str += "+";
+            }
+            str += poly[i].toString();
+                str += "x^" + i;
+            }
         }
-        str += poly[i].toString();
-        str += "x^" + i;
+    } else {
+        for (var i = 1; i < poly.length; ++i) {
+            if (poly[i] > 0) {
+                str = "+" + str;
+            }
+            str = "x^" + i + str;
+            str = poly[i].toString() + str;
+        }
     }
-    return str.replace(/\^1/, '');
+    return str.replace(/\^1/, '').replace(/([+\-]?)1x/,'$1x');
 }
 function poly_deg(p) {
     if (!(p instanceof Array)) {
