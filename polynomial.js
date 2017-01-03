@@ -1,4 +1,8 @@
 function poly_add(l, r) {
+    if (arguments.length > 2) {
+        var args = Array.prototype.slice.call(arguments, [0]);
+        return poly_add.apply(this, [args.shift(), poly_add.apply(this, args)]);
+    }
     if (!(l instanceof Array)) {
         l = [l];
     }
