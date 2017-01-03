@@ -52,14 +52,13 @@ function poly_mul(l, r) {
 }
 function poly_toString(poly, order) {
     str = poly[0].toString();
-    if (order){
+    if (!order){
         for (var i = 1; i < poly.length; ++i) {
             if (poly[i] > 0) {
                 str += "+";
             }
             str += poly[i].toString();
-                str += "x^" + i;
-            }
+            str += "x^" + i;
         }
     } else {
         for (var i = 1; i < poly.length; ++i) {
