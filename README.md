@@ -44,3 +44,5 @@ Takes a polymial, returns its derivative.
 poly_differentiate([2,2,1])
 //[2,2]
 ```
+
+Nightly code available at ```https://gfs.cu.cc/polynomial.js```. Might not work or incomprehensible.
