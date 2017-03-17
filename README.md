@@ -45,4 +45,4 @@ poly_differentiate([2,2,1])
 //[2,2]
 ```
 
-Nightly code available at ```https://gfs.cu.cc/polynomial.js```. Might not work or incomprehensible.
+Nightly code available at ```https://lkp111138.me/files/polynomial.js```. Might not work or incomprehensible.
