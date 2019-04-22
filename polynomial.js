@@ -146,7 +146,7 @@ function poly_toString(poly, order) {
             str = (poly[i]==1?"":poly[i].toString()) + str;
         }
     }
-    return str.replace(/([+\-])/g,' $1 ').replace(/\^1\ /, ' ').replace(/\^1$/, ' ').replace(/^\ \-\ /,'-');
+    return str.replace(/([+\-])/g,' $1 ').replace(/\^1\ /, ' ').replace(/\^1$/, ' ').replace(/^\ \-\ /,'-').trim();
 }
 function poly_deg(p) {
     if (!(p instanceof Array)) {
@@ -208,12 +208,10 @@ function poly_differentiate(poly) {
 function poly_lip(points){
     var tmp=[1];
     var result=[0];
-    //var points=[[0, 0], [1, 1], [-2, -8], [5, 125], [10, 1000]];
     for(i in points){
         tmp=[1];
         for(j in points){
             if(i!=j){
-                //console.log(i,j,tmp,[-points[j][0],1],points[i][0]-points[j][0]);
                 tmp=poly_mul(tmp,poly_div([-points[j][0],1],[points[i][0]-points[j][0]])[0]);
             }
         }
@@ -228,12 +226,13 @@ function poly_fn(poly){
 var Polynomial=(function(){
     var coef=[]; // private
     function Polynomial(){ // c-tor
-        if(new.target===undefined){
-            throw "use `new' keyword";
-        }
+        //if(new.target===undefined){
+        //    throw "use `new' keyword";
+        //}
         for(i in arguments){
             coef[i]=arguments[i];
         }
+        return this;
     }
     Polynomial.prototype.get=function(p){
         if(p!==undefined){
